@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
-@import './variables/variables';
+@import 'variables/variables';
 @import './base.scss';
 
 @import 'blocks/navigation';
 @import 'blocks/catalog';
 @import 'blocks/hamberger';
+@import 'blocks/modal';
+@import 'blocks/form';
 
 
 @import 'blocks/media';

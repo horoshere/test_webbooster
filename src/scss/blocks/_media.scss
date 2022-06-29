@@ -31,6 +31,24 @@
   .container {
     max-width: 540px;
   }
+  .navigation {
+    &__links {
+      position: fixed;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100vh;
+      padding: 20px 15px;
+      background-color: rgba(0,0,0,.8);
+      transition: .6s all;
+      &_active {
+        left: 0;
+      }
+    }
+  }
   .hamburger {
     display: block;
   }

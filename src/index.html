@@ -29,59 +29,81 @@
             <div class="catalog__wrapper">
                <div class="catalog__item">
                     <img src="img/item.webp" alt="item-img" class="catalog__item-photo">
-                    <div class="catalog__item-subtitle">Наименование товара</div>
+                    <div class="catalog__item-subtitle">Nintendo 16</div>
                     <div class="catalog__item-descr">Описание товара описание товара описание товара</div>
                     <hr>
                     <div class="catalog__item-footer">
                         <div class="catalog__item-prices">
-                            <div class="catalog__item-oldprice">24 000 руб.</div>
-                            <div class="catalog__item-newprice">15 600 руб.</div>
+                            <div class="catalog__item-oldprice">19 000 руб.</div>
+                            <div class="catalog__item-newprice">14 600 руб.</div>
                         </div>
-                        <button class="catalog__button">Купить</button>
+                        <button class="button" data-modal="order">Купить</button>
                     </div>
                </div>
                <div class="catalog__item">
                     <img src="img/item.webp" alt="item-img" class="catalog__item-photo">
-                    <div class="catalog__item-subtitle">Наименование товара</div>
+                    <div class="catalog__item-subtitle">Nintendo 32</div>
                     <div class="catalog__item-descr">Описание товара описание товара описание товара</div>
                     <hr>
                     <div class="catalog__item-footer">
                         <div class="catalog__item-prices">
-                            <div class="catalog__item-oldprice">24 000 руб.</div>
-                            <div class="catalog__item-newprice">15 600 руб.</div>
+                            <div class="catalog__item-oldprice">21 000 руб.</div>
+                            <div class="catalog__item-newprice">16 600 руб.</div>
                         </div>
-                        <button class="catalog__button">Купить</button>
+                        <button class="button" data-modal="order">Купить</button>
                     </div>
                 </div>
                 <div class="catalog__item">
                     <img src="img/item.webp" alt="item-img" class="catalog__item-photo">
-                    <div class="catalog__item-subtitle">Наименование товара</div>
+                    <div class="catalog__item-subtitle">Nintendo 64</div>
                     <div class="catalog__item-descr">Описание товара описание товара описание товара</div>
                     <hr>
                     <div class="catalog__item-footer">
                         <div class="catalog__item-prices">
-                            <div class="catalog__item-oldprice">24 000 руб.</div>
-                            <div class="catalog__item-newprice">15 600 руб.</div>
+                            <div class="catalog__item-oldprice">23 000 руб.</div>
+                            <div class="catalog__item-newprice">18 600 руб.</div>
                         </div>
-                        <button class="catalog__button">Купить</button>
+                        <button class="button" data-modal="order">Купить</button>
                     </div>
                 </div>
                 <div class="catalog__item">
                     <img src="img/item.webp" alt="item-img" class="catalog__item-photo">
-                    <div class="catalog__item-subtitle">Наименование товара</div>
+                    <div class="catalog__item-subtitle">Nintendo 128</div>
                     <div class="catalog__item-descr">Описание товара описание товара описание товара</div>
                     <hr>
                     <div class="catalog__item-footer">
                         <div class="catalog__item-prices">
-                            <div class="catalog__item-oldprice">24 000 руб.</div>
-                            <div class="catalog__item-newprice">15 600 руб.</div>
+                            <div class="catalog__item-oldprice">25 000 руб.</div>
+                            <div class="catalog__item-newprice">20 600 руб.</div>
                         </div>
-                        <button class="catalog__button">Купить</button>
+                        <button class="button" data-modal="order">Купить</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="overlay">
+    
+        <div class="modal" id="order">
+          <div class="modal__close">&times;</div>
+          <div class="modal__subtitle">Ваш заказ:</div>
+          <div class="modal__descr">Nintendo 16</div>
+          <form class="feed_form feed_form_mt25 feed_form_320" action="#">
+            <input name="name" placeholder="Ваше имя" type="text">
+            <input name="phone" placeholder="Ваш телефон">
+            <input name="email" placeholder="Ваш E-mail" type="email">
+    
+            <button class="button button__submit">Купить</button>
+          </form>
+        </div>
+    
+        <div class="modal modal_mini" id="thanks">
+          <div class="modal__close">&times;</div>
+          <div class="modal__subtitle">Спасибо за вашу заявку!</div>
+          <div class="modal__descr modal__descr_mini">Наш менеджер свяжется с вами в ближайшее время!</div>
+        </div>
+    </div>
 
 
 
