@@ -99,8 +99,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Modal
   const modal = document.querySelector('.modal'),
+        modalThx = document.querySelector('.modal__thanks'),
+        modalBlock = document.querySelector('.modal__block'),
+        form = document.querySelector('form'),
         modalOverlay = document.querySelector('.modal__overlay'),
-        triggerModal = document.querySelector('.button'),
+        triggerModal = document.querySelectorAll('.button'),
         cross = document.querySelector('.modal__close');
 
   function showModal() {
@@ -108,7 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
   }
 
-  triggerModal.addEventListener('click', showModal);
+  triggerModal.forEach(item => {
+    item.addEventListener('click', showModal);
+  });
 
   function closeModal() {
     modal.classList.remove('modal__active');
@@ -125,7 +130,108 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.code === 'Escape' && modal.classList.contains('modal__active')) {
       closeModal();
     }
-  }); // //hamburger
+  }); // function showThxModal() {
+  //   modal.classList.add('modal__active');
+  //   modalBlock.style.display = 'none';
+  //   modalThx.style.display = 'block';
+  //   document.body.style.overflow = 'hidden';
+  // }
+
+  form.addEventListener('onSubmit', e => {
+    e.preventDefault();
+    showThxModal(); //   showThxModal();
+    //   setTimeout(() => {
+    //     modalBlock.style.display = 'block';
+    //     modalThx.style.display = 'none';
+    //     closeModal();
+    //   }, 2500);
+  });
+
+  function showThxModal() {
+    modalBlock.classList.add('hide');
+    showModal();
+    const thxModal = document.createElement('div');
+    thxModal.classList.add('modal__thanks');
+    thxModal.innerHTML = `
+          <div class="modal__subtitle">Спасибо за вашу заявку!</div>
+          <div class="modal__descr modal__descr_mini">Наш менеджер свяжется с вами в  ближайшее время!
+          </div>
+      `;
+    modal.append(thxModal);
+    setTimeout(() => {
+      thxModal.remove();
+      modalBlock.classList.add('show');
+      modalBlock.classList.remove('hide');
+      closeModal();
+    }, 2500);
+  } //form
+
+
+  $('form').submit(function (e) {
+    e.preventDefault();
+
+    if (!$(this).valid()) {
+      return;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "../mailer/smart.php",
+      //выбираем обработчика
+      data: $(this).serialize() //данные которые хотим отправить на сервер
+
+    }).done(function () {
+      $(this).find("input").val(""); //устанавливаем value у input'ов в пустую строку
+
+      $('#form').fadeOut();
+      $(' #thanks').fadeIn('slow');
+      $('form').trigger('reset');
+    });
+    return false;
+  }); //valid
+
+  $("#registerForm").validate({
+    rules: {
+      name: "required",
+      phone: "required",
+      email: {
+        required: true,
+        email: true
+      }
+    },
+    messages: {
+      name: "Пожалуйста, введите свое имя",
+      phone: "Пожалуйста, введите свой номер телефона",
+      email: {
+        required: "Пожалуйста, введите свой e-mail",
+        email: "Неправильно введен адрес почты"
+      }
+    }
+  }); //   function valideForms(form) {
+  //     $(form).validate({
+  //       rules:{
+  //         name: "required",
+  //         phone: "required",
+  //         email: {
+  //           required: true,
+  //           email:true
+  //         }
+  //       },
+  //       messages: {
+  //         name: "Пожалуйста, введите свое имя",
+  //         phone: "Пожалуйста, введите свой номер телефона",
+  //         email: {
+  //           required: "Пожалуйста, введите свой e-mail",
+  //           email: "Неправильно введен адрес почты"
+  //         }
+  //       }
+  //     });
+  //   };
+  //   valideForms('#consultation-form');
+  //   valideForms('#consultation form');
+  //   valideForms('#order form');
+  //   $('input[name=phone]').mask("+7 (999) 999-9999");
+  // //hamburger
   // const burger = document.querySelector('.hamburger'),
   //     right = document.querySelector('.navigation__links'),
   //     itemRight = document.querySelectorAll('.navigation__link');

@@ -156,6 +156,19 @@ nav {
     border-radius: 5px;
     transition: all .6s;
     z-index: 10; }
+  .modal__thanks {
+    display: none;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    min-height: 143px;
+    background-color: #fff;
+    padding: 35px 40px 40px 40px;
+    border-radius: 5px;
+    transition: all .6s;
+    z-index: 10; }
   .modal__overlay {
     position: fixed;
     top: 0;

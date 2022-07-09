@@ -85,24 +85,32 @@
 
 
     <div class="modal">
-        <div class="modal__block">
+        <div class="modal__block" id="form">
             <div class="modal__close">&times;</div>
-            <div class="modal__subtitle">Просто заполните форму заявки</div>
-            <div class="modal__descr">и мы перезвоним вам в течении 10 минут</div>
-            <form class="feed_form feed_form_mt25 feed_form_320" action="#">
+            <div class="modal__subtitle">Ваш заказ:</div>
+            <div class="modal__descr">NINTENDO 16</div>
+            <form id="form" class="feed_form feed_form_mt25" action="#">
                 <input name="name" placeholder="Ваше имя" type="text">
                 <input name="phone" placeholder="Ваш телефон">
                 <input name="email" placeholder="Ваш E-mail" type="email">
 
-                <button class="button button__submit">заказать кОНСУЛЬТАЦИЮ</button>
+                <button class="button button__submit">оформить покупку</button>
             </form>
         </div>
+
+        <div class="modal__thanks" id="thanks">
+            <!-- <div class="modal__close">&times;</div> -->
+            <div class="modal__subtitle">Спасибо за вашу заявку!</div>
+            <div class="modal__descr modal__descr_mini">Наш менеджер свяжется с вами в ближайшее время!</div>
+        </div>
+
         <div class="modal__overlay"></div>
     </div>
 
 
-
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
