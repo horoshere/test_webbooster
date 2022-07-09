@@ -182,17 +182,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }).done(function () {
       $(this).find("input").val(""); //устанавливаем value у input'ов в пустую строку
+      // $('#form').fadeOut();
+      // $(' #thanks').fadeIn('slow');
 
-      $('#form').fadeOut();
-      $(' #thanks').fadeIn('slow');
       $('form').trigger('reset');
     });
     return false;
   }); //valid
 
-  $("#registerForm").validate({
+  $("form").validate({
     rules: {
-      name: "required",
+      name: {
+        required: true,
+        minlength: 2
+      },
       phone: "required",
       email: {
         required: true,
@@ -200,7 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     },
     messages: {
-      name: "Пожалуйста, введите свое имя",
+      name: {
+        required: "Пожалуйста, введите свое имя",
+        minlength: jQuery.validator.format("Введите {0} символа!")
+      },
       phone: "Пожалуйста, введите свой номер телефона",
       email: {
         required: "Пожалуйста, введите свой e-mail",
