@@ -30,11 +30,7 @@ a {
     height: 58px;
     font-size: 16px; }
 
-.show {
-  display: block; }
 
-.hide {
-  display: none; }
 
 nav {
   height: 80px; }
@@ -268,3 +264,8 @@ nav {
   .navigation {
     height: 50px;
     padding: 10px 20px; } }
+    .show {
+      display: block; }
+    
+    .hide {
+      display: none; }

@@ -99,7 +99,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Modal
   const modal = document.querySelector('.modal'),
-        modalThx = document.querySelector('.modal__thanks'),
         modalBlock = document.querySelector('.modal__block'),
         form = document.querySelector('form'),
         modalOverlay = document.querySelector('.modal__overlay'),
@@ -136,16 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
   //   modalThx.style.display = 'block';
   //   document.body.style.overflow = 'hidden';
   // }
+  // subtitle of card
 
-  form.addEventListener('onSubmit', e => {
-    e.preventDefault();
-    showThxModal(); //   showThxModal();
-    //   setTimeout(() => {
-    //     modalBlock.style.display = 'block';
-    //     modalThx.style.display = 'none';
-    //     closeModal();
-    //   }, 2500);
-  });
+  $('.button').each(function (i) {
+    $(this).on('click', function () {
+      $('#form .modal__descr').text($('.catalog__item-subtitle').eq(i).text());
+    });
+  }); // form.addEventListener('onSubmit', (e) => {
+  //   e.preventDefault();
+  //   showThxModal();
+  // })
 
   function showThxModal() {
     modalBlock.classList.add('hide');
@@ -182,9 +181,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }).done(function () {
       $(this).find("input").val(""); //устанавливаем value у input'ов в пустую строку
-      // $('#form').fadeOut();
-      // $(' #thanks').fadeIn('slow');
 
+      $('#form').fadeOut();
+      $(' #thanks').fadeIn('slow');
+      setTimeout(() => {
+        $('#form').fadeIn();
+        $(' #thanks').fadeOut('slow');
+      }, 2500);
       $('form').trigger('reset');
     });
     return false;
@@ -236,8 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //   valideForms('#consultation-form');
   //   valideForms('#consultation form');
   //   valideForms('#order form');
-  //   $('input[name=phone]').mask("+7 (999) 999-9999");
-  // //hamburger
+
+  $('input[name=phone]').mask("+7 (999) 999-9999"); // //hamburger
   // const burger = document.querySelector('.hamburger'),
   //     right = document.querySelector('.navigation__links'),
   //     itemRight = document.querySelectorAll('.navigation__link');
